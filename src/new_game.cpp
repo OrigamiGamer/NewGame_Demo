@@ -40,9 +40,24 @@ bool on_exit() {
 		if (engine.Shutdown()) return true;
 	return false;
 }
+int number = 0;
+float stroke_width = 0.0f;
+int addition = 1;
+int tick = 0;
 void on_update() {
+	number++;
+	if (number >= 100) {
+		number = 0;
+		stroke_width += addition * 0.2f;
+		if (stroke_width >= 10.0f || stroke_width <= 0.0f) {
+			addition = -addition;
+		}
+		engine.graphic.set_stroke_width(stroke_width);
+	}
+	tick++;
+	SetWindowText(engine.properties.window->GetHandle(), to_wstring(tick).c_str());
 }
 void on_render() {
-	engine.graphic.set_stroke_width(10.0f);
 	engine.graphic.draw_line({ 10,10 }, { 200,200 });
+	engine.graphic.draw_circle({ 300,200 });
 }
