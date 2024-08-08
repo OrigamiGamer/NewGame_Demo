@@ -12,3 +12,5 @@
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow);
 bool on_init();
 bool on_exit();
+void on_update();
+void on_render();

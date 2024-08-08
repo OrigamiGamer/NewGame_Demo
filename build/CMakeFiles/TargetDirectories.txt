@@ -1,0 +1,4 @@
+D:/Origami/Dev/chaos_projects/NewGame_Demo/build/CMakeFiles/NewGame.dir
+D:/Origami/Dev/chaos_projects/NewGame_Demo/build/CMakeFiles/PACKAGE.dir
+D:/Origami/Dev/chaos_projects/NewGame_Demo/build/CMakeFiles/ALL_BUILD.dir
+D:/Origami/Dev/chaos_projects/NewGame_Demo/build/CMakeFiles/ZERO_CHECK.dir
