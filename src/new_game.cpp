@@ -46,7 +46,7 @@ int addition = 1;
 int tick = 0;
 void on_update() {
 	number++;
-	if (number >= 100) {
+	if (number >= 10) {
 		number = 0;
 		stroke_width += addition * 0.2f;
 		if (stroke_width >= 10.0f || stroke_width <= 0.0f) {
