@@ -13,8 +13,13 @@ set(PATH_LIST
 	"${ROOT}/basic_chaos_engine/library/DirectX/D2D"
 )
 
+# For Visual Studio CMake Tools
 #link_directories("${ROOT}/out/build/x64-Release")
-link_directories("${ROOT}/out/build/x64-Debug")
+# link_directories("${ROOT}/out/build/x64-Debug")
+
+# For VSCode CMake Tools
+link_directories("${ROOT}/build/Debug")
+
 include_directories(${PATH_LIST})
 
 add_executable(${PROJECT_NAME} WIN32 "src/new_game.cpp")

@@ -1,4 +1,4 @@
-# Install script for directory: D:/Origami/Dev/chaos_projects/NewGame_Demo
+# Install script for directory: F:/Dev/ChaosProjects/ChaosEngineCPP_Rebuild/NewGame_Demo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Origami/Dev/chaos_projects/NewGame_Demo/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "F:/Dev/ChaosProjects/ChaosEngineCPP_Rebuild/NewGame_Demo/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
