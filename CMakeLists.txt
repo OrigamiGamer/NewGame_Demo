@@ -15,10 +15,10 @@ set(PATH_LIST
 
 # For Visual Studio CMake Tools
 #link_directories("${ROOT}/out/build/x64-Release")
-# link_directories("${ROOT}/out/build/x64-Debug")
+link_directories("${ROOT}/out/build/x64-Debug")
 
 # For VSCode CMake Tools
-link_directories("${ROOT}/build/Debug")
+# link_directories("${ROOT}/build/Debug")
 
 include_directories(${PATH_LIST})
 
