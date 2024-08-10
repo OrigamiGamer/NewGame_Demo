@@ -13,12 +13,9 @@ set(PATH_LIST
 	"${ROOT}/basic_chaos_engine/library/DirectX/D2D"
 )
 
-# For Visual Studio CMake Tools
-#link_directories("${ROOT}/out/build/x64-Release")
-link_directories("${ROOT}/out/build/x64-Debug")
-
-# For VSCode CMake Tools
-# link_directories("${ROOT}/build/Debug")
+# For different IDE
+# link_directories("${ROOT}/out/build/x64-Release")
+link_directories("${ROOT}/out/build/x64-Debug" "${ROOT}/out/build/Debug")
 
 include_directories(${PATH_LIST})
 
