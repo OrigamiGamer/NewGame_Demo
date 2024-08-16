@@ -23,6 +23,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 	engine_prop.window = &main_window;
 	engine_prop.on_update = &on_update;
 	engine_prop.on_render = &on_render;
+	engine_prop.interval_game_render = chrono::milliseconds(1000 / 60);
+	engine_prop.interval_game_update = chrono::milliseconds(1000 / 60);
+	engine_prop.interval_window_update = chrono::milliseconds(1000 / 60);
 	engine.Initialize(engine_prop);
 	engine.Run();
 	return 0;
@@ -40,24 +43,33 @@ bool on_exit() {
 		if (engine.Shutdown()) return true;
 	return false;
 }
-int number = 0;
+long number = 0;
+long addition = 1;
 float stroke_width = 0.0f;
-int addition = 1;
-int tick = 0;
+long tick = 0;
+unsigned long long this_time = 0;
 void on_update() {
 	number++;
-	if (number >= 10) {
+	if (number >= 1) {
 		number = 0;
-		stroke_width += addition * 0.2f;
+		stroke_width += addition * 0.1f;
 		if (stroke_width >= 10.0f || stroke_width <= 0.0f) {
 			addition = -addition;
 		}
 		engine.graphic.set_stroke_width(stroke_width);
 	}
 	tick++;
-	SetWindowText(engine.properties.window->GetHandle(), to_wstring(tick).c_str());
+	// 1000ms
+	if (engine.last_time_update - this_time > 1000) {
+		this_time = engine.last_time_update;
+		SetWindowText(engine.properties.window->GetHandle(),
+			(L"FPS " + to_wstring(tick) + L" " 
+			+ to_wstring(engine.properties.window->GetPos().x)).c_str()
+		);
+		tick = 0;
+	}
 }
 void on_render() {
 	engine.graphic.draw_line({ 10,10 }, { 200,200 });
-	engine.graphic.draw_circle({ 300,200 });
+	engine.graphic.draw_circle({ 300,200 }, 100);
 }

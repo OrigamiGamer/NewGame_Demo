@@ -9,8 +9,8 @@ set(PATH_LIST
 	"${ROOT}/include"
 	"${ROOT}/library"
 	"${ROOT}/basic_chaos_engine"
-	"${ROOT}/basic_chaos_engine/library/DirectX"
-	"${ROOT}/basic_chaos_engine/library/DirectX/D2D"
+	"${ROOT}/basic_chaos_engine/library/graphic/DirectX"
+	"${ROOT}/basic_chaos_engine/library/graphic/DirectX/D2D"
 )
 
 # For different IDE
