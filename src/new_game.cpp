@@ -63,8 +63,8 @@ void on_update() {
 	if (engine.last_time_update - this_time > 1000) {
 		this_time = engine.last_time_update;
 		SetWindowText(engine.properties.window->GetHandle(),
-			(L"FPS " + to_wstring(tick) + L" " 
-			+ to_wstring(engine.properties.window->GetPos().x)).c_str()
+			(L"FPS " + to_wstring(tick) + L" "
+				+ to_wstring(engine.properties.window->GetPos().x)).c_str()
 		);
 		tick = 0;
 	}
