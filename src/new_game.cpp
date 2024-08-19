@@ -16,7 +16,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 	wnd_prop.height = 720;
 	wnd_prop.on_init = &on_init;
 	wnd_prop.on_exit = &on_exit;
-	wnd_prop.style = WindowStyle::DEFAULT | WindowStyle::VISIBLE;
+	wnd_prop.style = Const::WindowStyle::DEFAULT | Const::WindowStyle::VISIBLE;
 	main_window.Initialize(wnd_prop);
 
 	INITIAL_ENGINE_PROPERTY engine_prop{};

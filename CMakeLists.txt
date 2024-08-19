@@ -9,6 +9,9 @@ set(PATH_LIST
 	"${ROOT}/include"
 	"${ROOT}/library"
 	"${ROOT}/basic_chaos_engine"
+	"${ROOT}/basic_chaos_engine/library"
+	"${ROOT}/basic_chaos_engine/library/audio"
+	"${ROOT}/basic_chaos_engine/library/audio/OpenAL"
 	"${ROOT}/basic_chaos_engine/library/graphic/DirectX"
 	"${ROOT}/basic_chaos_engine/library/graphic/DirectX/D2D"
 )
