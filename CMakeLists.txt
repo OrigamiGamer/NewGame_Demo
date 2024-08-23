@@ -12,13 +12,14 @@ set(PATH_LIST
 	"${ROOT}/basic_chaos_engine/library"
 	"${ROOT}/basic_chaos_engine/library/audio"
 	"${ROOT}/basic_chaos_engine/library/audio/OpenAL"
+	"${ROOT}/basic_chaos_engine/library/graphic"
 	"${ROOT}/basic_chaos_engine/library/graphic/DirectX"
 	"${ROOT}/basic_chaos_engine/library/graphic/DirectX/D2D"
 )
 
 # For different IDE
 # link_directories("${ROOT}/out/build/x64-Release")
-link_directories("${ROOT}/out/build/x64-Debug" "${ROOT}/out/build/Debug")
+link_directories(${PATH_LIST} "${ROOT}/out/build/x64-Debug" "${ROOT}/out/build/Debug")
 
 include_directories(${PATH_LIST})
 

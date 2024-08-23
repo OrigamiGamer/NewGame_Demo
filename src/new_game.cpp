@@ -23,19 +23,28 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 	engine_prop.window = &main_window;
 	engine_prop.on_update = &on_update;
 	engine_prop.on_render = &on_render;
-	engine_prop.interval_game_render = chrono::milliseconds(1000 / 60);
-	engine_prop.interval_game_update = chrono::milliseconds(1000 / 60);
 	engine_prop.interval_window_update = chrono::milliseconds(1000 / 60);
+	engine_prop.interval_game_update = chrono::milliseconds(1000 / 60);
+	engine_prop.interval_game_render = chrono::milliseconds(1000 / 60);
 	engine.Initialize(engine_prop);
 	engine.Run();
 	return 0;
 }
+
+basic_chaos_engine::basic_audio::basic_sound_player sound_player;
 bool on_init() {
 	basic_type::vec2<int> size = main_window.GetSize();
 	OutputDebugStringW(std::to_wstring(size.x).c_str());
 	OutputDebugStringW(L"\n");
 	OutputDebugStringW(std::to_wstring(size.y).c_str());
 	OutputDebugStringW(L"\n");
+
+	sound_player.initialize();
+	if (sound_player.load_sound_file(L"./res/sound/uplifting.wav")) {
+		
+	}
+
+
 	return true;
 }
 bool on_exit() {
@@ -58,18 +67,18 @@ void on_update() {
 		}
 		engine.graphic.set_stroke_width(stroke_width);
 	}
+
 	tick++;
 	// 1000ms
-	if (engine.last_time_update - this_time > 1000) {
+	if (engine.last_time_update - this_time >= 1000) {
 		this_time = engine.last_time_update;
 		SetWindowText(engine.properties.window->GetHandle(),
-			(L"FPS " + to_wstring(tick) + L" "
-				+ to_wstring(engine.properties.window->GetPos().x)).c_str()
+			(L"FPS " + to_wstring(tick)).c_str()
 		);
 		tick = 0;
 	}
 }
 void on_render() {
-	engine.graphic.draw_line({ 10,10 }, { 200,200 });
+	engine.graphic.draw_line({ 50,50 }, { 200,200 });
 	engine.graphic.draw_circle({ 300,200 }, 100);
 }

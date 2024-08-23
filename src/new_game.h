@@ -1,6 +1,8 @@
 #pragma once
 
 #define UNICODE
+#define _D2D
+#define _OPENAL
 
 // Windows
 #include <Windows.h>
