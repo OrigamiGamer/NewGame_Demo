@@ -40,8 +40,12 @@ bool on_init() {
 	OutputDebugStringW(L"\n");
 
 	sound_player.initialize();
-	if (sound_player.load_sound_file(L"./res/sound/uplifting.wav")) {
-		
+	if (sound_player.load_sound_file(L"./res/sound/uplifting.wav", L"uplifting")) {
+		auto channel_main = sound_player.create_channel(L"main");
+		if (channel_main != nullptr) {
+			channel_main->insert_sound(0, sound_player.get_sound(L"uplifting"));
+		}
+		sound_player.playback();
 	}
 
 
