@@ -9,12 +9,14 @@ set(PATH_LIST
 	"${ROOT}/include"
 	"${ROOT}/library"
 	"${ROOT}/basic_chaos_engine"
-	"${ROOT}/basic_chaos_engine/library"
-	"${ROOT}/basic_chaos_engine/library/audio"
-	"${ROOT}/basic_chaos_engine/library/audio/OpenAL"
-	"${ROOT}/basic_chaos_engine/library/graphic"
-	"${ROOT}/basic_chaos_engine/library/graphic/DirectX"
-	"${ROOT}/basic_chaos_engine/library/graphic/DirectX/D2D"
+	"${ROOT}/basic_chaos_engine/libraries"
+	"${ROOT}/basic_chaos_engine/libraries/utils"
+	"${ROOT}/basic_chaos_engine/libraries/utils/fftw3/api"
+	"${ROOT}/basic_chaos_engine/libraries/audio"
+	"${ROOT}/basic_chaos_engine/libraries/audio/OpenAL"
+	"${ROOT}/basic_chaos_engine/libraries/graphics"
+	"${ROOT}/basic_chaos_engine/libraries/graphics/DirectX"
+	"${ROOT}/basic_chaos_engine/libraries/graphics/DirectX/D2D"
 )
 
 # For different IDE
