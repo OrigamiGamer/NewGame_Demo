@@ -8,7 +8,8 @@ using namespace ChaosEngine;
 Window main_window;
 Engine engine;
 
-int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow) {
+int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
+{
 	using namespace basic_chaos_engine;
 	basic_window::INITIAL_WINDOW_PROPERTY wnd_prop{};
 	wnd_prop.title = L"game window on Windows platform";
@@ -33,7 +34,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 
 basic_chaos_engine::basic_audio::basic_sound_player sound_player;
 basic_chaos_engine::basic_audio_openal openal;
-bool on_init() {
+bool on_init()
+{
 	basic_type::vec2<int> size = main_window.GetSize();
 	OutputDebugStringW(std::to_wstring(size.x).c_str());
 	OutputDebugStringW(L"\n");
@@ -50,16 +52,19 @@ bool on_init() {
 	// }
 
 	openal.initialize();
-	basic_chaos_engine::type::BufferID buffer_id = openal.load_sound_file(L"./res/sound/music.wav");
+	basic_chaos_engine::type::BufferID buffer_id = openal.load_sound_file(L"./sound/ShichSason - Run Girls, Run! - Share the light Assertive Hardcore Bootleg.mp3");
 	basic_chaos_engine::type::SourceID source_id = openal.create_source();
 	openal.source_queue_buffer(source_id, buffer_id);
 	openal.source_play(source_id);
+	openal.source_set_volume(source_id, 0.1f);
 
 	return true;
 }
-bool on_exit() {
+bool on_exit()
+{
 	if (MessageBoxW(main_window.GetHandle(), L"Really quit?", L"Tips", MB_OKCANCEL) == IDOK)
-		if (engine.Shutdown()) {
+		if (engine.Shutdown())
+		{
 			openal.release();
 			return true;
 		}
@@ -70,12 +75,15 @@ long addition = 1;
 float stroke_width = 0.0f;
 long tick = 0;
 unsigned long long this_time = 0;
-void on_update() {
+void on_update()
+{
 	number++;
-	if (number >= 1) {
+	if (number >= 1)
+	{
 		number = 0;
 		stroke_width += addition * 0.1f;
-		if (stroke_width >= 10.0f || stroke_width <= 0.0f) {
+		if (stroke_width >= 10.0f || stroke_width <= 0.0f)
+		{
 			addition = -addition;
 		}
 		engine.graphic.set_stroke_width(stroke_width);
@@ -83,7 +91,8 @@ void on_update() {
 
 	tick++;
 	// 1000ms
-	if (engine.last_time_update - this_time >= 1000) {
+	if (engine.last_time_update - this_time >= 1000)
+	{
 		this_time = engine.last_time_update;
 		SetWindowText(engine.properties.window->GetHandle(),
 			(L"FPS " + to_wstring(tick)).c_str()
@@ -91,7 +100,8 @@ void on_update() {
 		tick = 0;
 	}
 }
-void on_render() {
+void on_render()
+{
 	engine.graphic.draw_line({ 50,50 }, { 200,200 });
 	engine.graphic.draw_circle({ 300,200 }, 100);
 }
