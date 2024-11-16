@@ -1,6 +1,6 @@
 #pragma once
 
-#include "new_game.h"
+#include "NewGame.h"
 
 using namespace std;
 using namespace ChaosEngine;

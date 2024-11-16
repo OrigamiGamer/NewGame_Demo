@@ -5,9 +5,9 @@ set(ROOT "../ChaosEngineCPP")
 set(PATH_LIST 
 	"src"
 	${ROOT}
-	"${ROOT}/src"
-	"${ROOT}/include"
-	"${ROOT}/library"
+	"${ROOT}/libraries"
+	"${ROOT}/ChaosEngine"
+	"${ROOT}/ChaosEngine/PhysicsEngine"
 	"${ROOT}/basic_chaos_engine"
 	"${ROOT}/basic_chaos_engine/libraries"
 	"${ROOT}/basic_chaos_engine/libraries/utils"
@@ -25,7 +25,7 @@ link_directories(${PATH_LIST} "${ROOT}/out/build/x64-Debug" "${ROOT}/out/build/D
 
 include_directories(${PATH_LIST})
 
-add_executable(${PROJECT_NAME} WIN32 "src/new_game.cpp")
+add_executable(${PROJECT_NAME} WIN32 "src/NewGame.cpp")
 target_link_libraries(NewGame d2d1 dwrite ChaosEngine_Static)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
